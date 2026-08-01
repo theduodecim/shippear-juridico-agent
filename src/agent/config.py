@@ -1,3 +1,4 @@
+cat > src/agent/config.py << 'EOF'
 """Configuración central para variables de entorno del proyecto."""
 
 from dataclasses import dataclass
@@ -33,3 +34,4 @@ def get_config() -> AgentConfig:
         tavily_api_key=os.getenv("TAVILY_API_KEY", ""),
         roxium_agent_key=os.getenv("ROXIUM_AGENT_KEY", ""),
     )
+EOF
