@@ -18,6 +18,7 @@ class AgentConfig:
     openrouter_model: str = DEFAULT_OPENROUTER_MODEL
     openrouter_base_url: str = OPENROUTER_BASE_URL
     tavily_api_key: str = ""
+    roxium_agent_key: str = ""
 
 
 def get_config() -> AgentConfig:
@@ -30,4 +31,5 @@ def get_config() -> AgentConfig:
         openrouter_model=os.getenv("OPENROUTER_MODEL", DEFAULT_OPENROUTER_MODEL),
         openrouter_base_url=os.getenv("OPENROUTER_BASE_URL", OPENROUTER_BASE_URL),
         tavily_api_key=os.getenv("TAVILY_API_KEY", ""),
+        roxium_agent_key=os.getenv("ROXIUM_AGENT_KEY", ""),
     )

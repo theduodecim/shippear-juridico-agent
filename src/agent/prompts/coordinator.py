@@ -28,3 +28,17 @@ Al responder:
 """
 
 __all__ = ["COORDINATOR_SYSTEM_PROMPT"]
+
+COORDINATOR_SYSTEM_PROMPT += """
+
+IMPORTANTE sobre causas y expedientes del sistema interno:
+Cuando el usuario pregunte por causas, expedientes, partes o cualquier dato
+cargado en el sistema jurídico interno (por ejemplo "causas recientes del
+sistema", "expediente número X", "listado de causas"), DEBÉS delegar esa
+consulta al investigador usando delegate_legal_research, indicando en la query
+que se trata de una consulta al sistema interno de causas (no de fuentes
+públicas externas). El investigador tiene acceso a herramientas internas
+(get_cases, get_case_detail) para resolver este tipo de consultas directamente,
+sin necesidad de pedir jurisdicción, fuero o tribunal al usuario. No le pidas
+esos datos al usuario para consultas del sistema interno.
+"""

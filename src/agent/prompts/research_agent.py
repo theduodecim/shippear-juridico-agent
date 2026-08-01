@@ -33,3 +33,29 @@ Reglas obligatorias:
 """
 
 __all__ = ["RESEARCH_AGENT_SYSTEM_PROMPT"]
+
+RESEARCH_AGENT_SYSTEM_PROMPT += """
+
+REGLA PRIORITARIA sobre qué herramienta usar:
+Si la consulta menciona un número de expediente, ID de causa, CUIJ, o pide el
+estado/últimas actualizaciones de un caso concreto del sistema, DEBÉS usar
+primero get_case_detail o get_cases (herramientas internas del sistema). NO
+uses web_search para esto: un número de expediente interno no se encuentra
+buscando en internet. Reservá web_search únicamente para normativa,
+jurisprudencia general, doctrina o noticias legales.
+"""
+
+RESEARCH_AGENT_SYSTEM_PROMPT += """
+
+REGLA DE PRIORIDAD DE FUENTES:
+Por defecto, para cualquier consulta relacionada con causas, expedientes, partes
+o datos del sistema, DEBÉS usar primero get_cases o get_case_detail (fuentes
+internas). Nunca uses web_search como primera opción para estos casos.
+
+Si la información que necesitás no está disponible en las fuentes internas, o si
+la consulta requiere normativa, jurisprudencia general, doctrina o noticias legales
+externas, entonces PREGUNTALE al usuario si querés que busques en internet antes
+de usar web_search. No uses web_search sin haber confirmado esto con el usuario,
+salvo que la consulta sea explícitamente sobre normativa, jurisprudencia o
+información pública externa (en ese caso podés buscar directamente).
+"""
