@@ -1,1 +1,22 @@
-"""Stub del sub-agente de investigación para recopilar información relevante."""
+"""Constructor del sub-agente de investigación jurídica."""
+
+from typing import Any
+
+from langchain.agents import create_agent
+
+from agent.llm import get_llm
+from agent.prompts.research_agent import RESEARCH_AGENT_SYSTEM_PROMPT
+from agent.tools.web_search_tool import web_search_tool
+
+
+def build_research_agent() -> Any:
+    """Arma el agente investigador jurídico con LLM, prompt y búsqueda web."""
+
+    return create_agent(
+        model=get_llm(),
+        tools=[web_search_tool],
+        system_prompt=RESEARCH_AGENT_SYSTEM_PROMPT,
+    )
+
+
+__all__ = ["build_research_agent"]
