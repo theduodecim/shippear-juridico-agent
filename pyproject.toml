@@ -10,4 +10,5 @@ dependencies = [
     "langchain-openai",
     "langgraph",
     "python-dotenv",
+    "tavily-python",
 ]
