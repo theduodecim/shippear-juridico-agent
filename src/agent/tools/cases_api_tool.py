@@ -1,4 +1,3 @@
-cat > src/agent/tools/cases_api_tool.py << 'EOF'
 """Herramientas LangChain para consultar causas jurídicas internas."""
 
 from __future__ import annotations
@@ -139,4 +138,3 @@ cases_api_tool = CasesApiTool()
 case_detail_tool = CaseDetailTool()
 
 __all__ = ["CaseDetailInput", "CaseDetailTool", "CasesApiInput", "CasesApiTool", "case_detail_tool", "cases_api_tool"]
-EOF
